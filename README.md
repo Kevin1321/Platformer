@@ -14,6 +14,7 @@ https://assetstore.unity.com/packages/2d/environments/sunnyland-woods-129708
 https://assetstore.unity.com/packages/2d/characters/sunny-land-forest-108124
 
 Future additions:
+- Audio
 - More Levels
 - AI driven enemies (https://arongranberg.com/astar/)
 - ESC Menu
