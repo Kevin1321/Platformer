@@ -1,6 +1,7 @@
 # Platformer
 
 Start Date: 18/Jan/2020
+
 Current time spend on the project: 11h
 
 Have a look at Assets\Prefabs\Character\Player\PF_Player.prefab to learn about how to control the character ingame
