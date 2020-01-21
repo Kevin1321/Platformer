@@ -22,6 +22,15 @@ namespace Player
         [SerializeField] Rigidbody2D Rigidbody2DComponent = null;
 
 
+        private readonly float crouch = 0;
+        private readonly float fall = .1f;
+        private readonly float hurt = .2f;
+        private readonly float idle = .3f;
+        private readonly float jump = .4f;
+        private readonly float run = .5f;
+
+        private readonly string animationState = "Blend";
+
         private bool isCrouching = false;
 
 
@@ -36,14 +45,12 @@ namespace Player
 
             if (IsGrounded.Value)
             {
-                //Idle
-                AnimatiorComponent.SetFloat("Blend", .3f);
+                AnimatiorComponent.SetFloat(animationState, idle);
 
                 if (Input.GetKey(Down.InputKey))
                 {
                     isCrouching = true;
-                    //Crouch
-                    AnimatiorComponent.SetFloat("Blend", 0);
+                    AnimatiorComponent.SetFloat(animationState, crouch);
                 }
 
                 if (Input.GetKey(Left.InputKey))
@@ -52,8 +59,7 @@ namespace Player
 
                     if (isCrouching) return;
                     
-                    //Run
-                    AnimatiorComponent.SetFloat("Blend", .5f);
+                    AnimatiorComponent.SetFloat(animationState, run);
                 }
 
                 if (Input.GetKey(Right.InputKey))
@@ -62,20 +68,17 @@ namespace Player
 
                     if (isCrouching) return;
                     
-                    //Run
-                    AnimatiorComponent.SetFloat("Blend", .5f);
+                    AnimatiorComponent.SetFloat(animationState, run);
                 }
             }
 
             if (velocity.y < -0.01f)
             {
-                //Fall
-                AnimatiorComponent.SetFloat("Blend", .1f);
+                AnimatiorComponent.SetFloat(animationState, fall);
             }
             if(velocity.y > 0.01f)
             {
-                //Jump
-                AnimatiorComponent.SetFloat("Blend", .4f);
+                AnimatiorComponent.SetFloat(animationState, jump);
             }
         }
     }
